@@ -1,13 +1,23 @@
 /* eslint-disable react/prop-types */
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import Trash from "../icons/Trash";
 
 const NoteCard = ({ note }) => {
   let position = JSON.parse(note.position);
   const colors = JSON.parse(note.colors);
   const body = JSON.parse(note.body);
-
   const textAreaRef = useRef(null);
+
+  function autoGrow(textAreaRef) {
+    const { current } = textAreaRef;
+    current.style.height = "auto"; // Reset the height
+    current.style.height = current.scrollHeight + "px"; // Set the new height
+  }
+
+  useEffect(() => {
+    autoGrow(textAreaRef);
+  }, []);
+
   return (
     <div
       className="card"
@@ -28,9 +38,11 @@ const NoteCard = ({ note }) => {
           ref={textAreaRef}
           style={{ color: colors.colorText }}
           defaultValue={body}
+          onInput={() => {
+            autoGrow(textAreaRef);
+          }}
         ></textarea>
       </div>
-      {body}
     </div>
   );
 };
