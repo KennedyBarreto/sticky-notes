@@ -18,6 +18,36 @@ const NoteCard = ({ note }) => {
     current.style.height = current.scrollHeight + "px"; // Set the new height
   }
 
+  const mouseMove = (e) => {
+    //1 - Calculate move direction
+    let mouseMoveDir = {
+      x: mouseStartPos.x - e.clientX,
+      y: mouseStartPos.y - e.clientY,
+    };
+
+    //2 - Update start position for next move.
+    mouseStartPos.x = e.clientX;
+    mouseStartPos.y = e.clientY;
+
+    //3 - Update card top and left position.
+    setPositon({
+      x: cardRef.current.offsetLeft - mouseMoveDir.x,
+      y: cardRef.current.offsetTop - mouseMoveDir.y,
+    });
+  };
+
+  const mouseDown = (e) => {
+    mouseStartPos.x = e.clientX;
+    mouseStartPos.y = e.clientY;
+    document.addEventListener("mousemove", mouseMove);
+    document.addEventListener("mouseup", mouseUp);
+  };
+
+  const mouseUp = () => {
+    document.removeEventListener("mousemove", mouseMove);
+    document.removeEventListener("mouseup", mouseUp);
+  };
+
   useEffect(() => {
     autoGrow(textAreaRef);
   }, []);
@@ -34,6 +64,7 @@ const NoteCard = ({ note }) => {
     >
       <div
         className="card-header"
+        onMouseDown={mouseDown}
         style={{ backgroundColor: colors.colorHeader }}
       >
         <Trash />
