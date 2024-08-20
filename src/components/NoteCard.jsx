@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useRef, useEffect, useState } from "react";
 import Trash from "../icons/Trash";
+import { setNewOffset } from "../utils.js";
 
 const NoteCard = ({ note }) => {
   // let position = JSON.parse(note.position);
-  const [position, setPositon] = useState(JSON.parse(note.position));
+  const [position, setPosition] = useState(JSON.parse(note.position));
   let mouseStartPos = { x: 0, y: 0 };
 
   const cardRef = useRef(null);
@@ -30,10 +31,8 @@ const NoteCard = ({ note }) => {
     mouseStartPos.y = e.clientY;
 
     //3 - Update card top and left position.
-    setPositon({
-      x: cardRef.current.offsetLeft - mouseMoveDir.x,
-      y: cardRef.current.offsetTop - mouseMoveDir.y,
-    });
+    const newPosition = setNewOffset(cardRef.current, mouseMoveDir);
+    setPosition(newPosition);
   };
 
   const mouseDown = (e) => {
