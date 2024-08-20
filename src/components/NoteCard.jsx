@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useRef, useEffect, useState } from "react";
 import Trash from "../icons/Trash";
-import { setNewOffset } from "../utils.js";
+import { setNewOffset, autoGrow } from "../utils.js";
 
 const NoteCard = ({ note }) => {
   // let position = JSON.parse(note.position);
@@ -12,12 +12,6 @@ const NoteCard = ({ note }) => {
   const colors = JSON.parse(note.colors);
   const body = JSON.parse(note.body);
   const textAreaRef = useRef(null);
-
-  function autoGrow(textAreaRef) {
-    const { current } = textAreaRef;
-    current.style.height = "auto"; // Reset the height
-    current.style.height = current.scrollHeight + "px"; // Set the new height
-  }
 
   const mouseMove = (e) => {
     //1 - Calculate move direction
