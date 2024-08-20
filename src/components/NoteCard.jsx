@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useRef, useEffect, useState } from "react";
 import Trash from "../icons/Trash";
-import { setNewOffset, autoGrow } from "../utils.js";
+import { setNewOffset, autoGrow, setZIndex } from "../utils.js";
 
 const NoteCard = ({ note }) => {
   // let position = JSON.parse(note.position);
@@ -30,6 +30,7 @@ const NoteCard = ({ note }) => {
   };
 
   const mouseDown = (e) => {
+    setZIndex(cardRef.current);
     mouseStartPos.x = e.clientX;
     mouseStartPos.y = e.clientY;
     document.addEventListener("mousemove", mouseMove);
@@ -69,6 +70,9 @@ const NoteCard = ({ note }) => {
           defaultValue={body}
           onInput={() => {
             autoGrow(textAreaRef);
+          }}
+          onFocus={() => {
+            setZIndex(cardRef.current);
           }}
         ></textarea>
       </div>
