@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Trash from "../icons/Trash";
 
 const NoteCard = ({ note }) => {
-  let position = JSON.parse(note.position);
+  // let position = JSON.parse(note.position);
+  const [position, setPositon] = useState(JSON.parse(note.position));
+  let mouseStartPos = { x: 0, y: 0 };
+
+  const cardRef = useRef(null);
   const colors = JSON.parse(note.colors);
   const body = JSON.parse(note.body);
   const textAreaRef = useRef(null);
@@ -21,6 +25,7 @@ const NoteCard = ({ note }) => {
   return (
     <div
       className="card"
+      ref={cardRef}
       style={{
         backgroundColor: colors.colorBody,
         left: `${position.x}px`,
