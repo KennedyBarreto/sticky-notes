@@ -6,6 +6,8 @@ import { setNewOffset, autoGrow, setZIndex, bodyParser } from "../utils.js";
 
 const NoteCard = ({ note }) => {
   // let position = JSON.parse(note.position);
+  const [saving, setSaving] = useState(false);
+  const keyUpTimer = useRef(null);
   const [position, setPosition] = useState(JSON.parse(note.position));
   let mouseStartPos = { x: 0, y: 0 };
 
@@ -13,6 +15,21 @@ const NoteCard = ({ note }) => {
   const colors = JSON.parse(note.colors);
   const body = bodyParser(note.body);
   const textAreaRef = useRef(null);
+
+  const handleKeyUp = async () => {
+    //1 - Initiate "saving" state
+    setSaving(true);
+
+    //2 - If we have a timer id, clear it so we can add another two seconds
+    if (keyUpTimer.current) {
+      clearTimeout(keyUpTimer.current);
+    }
+
+    //3 - Set timer to trigger save in 2 seconds
+    keyUpTimer.current = setTimeout(() => {
+      saveData("body", textAreaRef.current.value);
+    }, 2000);
+  };
 
   const mouseMove = (e) => {
     //1 - Calculate move direction
@@ -53,6 +70,7 @@ const NoteCard = ({ note }) => {
     } catch (error) {
       console.error(error);
     }
+    setSaving(false);
   };
 
   useEffect(() => {
@@ -75,10 +93,16 @@ const NoteCard = ({ note }) => {
         style={{ backgroundColor: colors.colorHeader }}
       >
         <Trash />
+        {saving && (
+          <div className="card-saving">
+            <span style={{ color: colors.colorText }}>Saving...</span>
+          </div>
+        )}
       </div>
       <div className="card-body">
         <textarea
           ref={textAreaRef}
+          onKeyUp={handleKeyUp}
           style={{ color: colors.colorText }}
           defaultValue={body}
           onInput={() => {
