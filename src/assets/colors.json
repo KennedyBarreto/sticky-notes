@@ -22,5 +22,11 @@
     "colorHeader": "#FED0FD",
     "colorBody": "#FEE5FD",
     "colorText": "#18181A"
+  },
+  {
+    "id": "color-red",
+    "colorHeader": "#FFC8C8",
+    "colorBody": "#FFD7D7",
+    "colorText": "#18181A"
   }
 ]
