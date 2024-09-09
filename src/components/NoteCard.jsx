@@ -78,6 +78,7 @@ const NoteCard = ({ note }) => {
 
   useEffect(() => {
     autoGrow(textAreaRef);
+    setZIndex(cardRef.current);
   }, []);
 
   return (
