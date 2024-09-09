@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
 import { db } from "../appwrite/databases";
 import DeleteButton from "./DeleteButton.jsx";
 import Spinner from "../icons/Spinner";
 import { setNewOffset, autoGrow, setZIndex, bodyParser } from "../utils.js";
+import { NoteContext } from "../context/NoteContext.jsx";
 
 const NoteCard = ({ note }) => {
   // let position = JSON.parse(note.position);
@@ -11,7 +12,7 @@ const NoteCard = ({ note }) => {
   const keyUpTimer = useRef(null);
   const [position, setPosition] = useState(JSON.parse(note.position));
   let mouseStartPos = { x: 0, y: 0 };
-
+  const { setSelectedNote } = useContext(NoteContext);
   const cardRef = useRef(null);
   const colors = JSON.parse(note.colors);
   const body = bodyParser(note.body);
@@ -47,7 +48,6 @@ const NoteCard = ({ note }) => {
     const newPosition = setNewOffset(cardRef.current, mouseMoveDir);
     setPosition(newPosition);
   };
-
   const mouseDown = (e) => {
     if (e.target.className === "card-header") {
       setZIndex(cardRef.current);
@@ -55,6 +55,7 @@ const NoteCard = ({ note }) => {
       mouseStartPos.y = e.clientY;
       document.addEventListener("mousemove", mouseMove);
       document.addEventListener("mouseup", mouseUp);
+      setSelectedNote(note);
     }
   };
 
@@ -115,6 +116,7 @@ const NoteCard = ({ note }) => {
           }}
           onFocus={() => {
             setZIndex(cardRef.current);
+            setSelectedNote(note);
           }}
         ></textarea>
       </div>
