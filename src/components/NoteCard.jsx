@@ -5,7 +5,7 @@ import DeleteButton from "./DeleteButton.jsx";
 import Spinner from "../icons/Spinner";
 import { setNewOffset, autoGrow, setZIndex, bodyParser } from "../utils.js";
 
-const NoteCard = ({ note, setNotes }) => {
+const NoteCard = ({ note }) => {
   // let position = JSON.parse(note.position);
   const [saving, setSaving] = useState(false);
   const keyUpTimer = useRef(null);
@@ -95,7 +95,7 @@ const NoteCard = ({ note, setNotes }) => {
         onMouseDown={mouseDown}
         style={{ backgroundColor: colors.colorHeader }}
       >
-        <DeleteButton noteId={note.$id} setNotes={setNotes} />
+        <DeleteButton noteId={note.$id} />
         {saving && (
           <div className="card-saving">
             <Spinner color={colors.colorText} />
