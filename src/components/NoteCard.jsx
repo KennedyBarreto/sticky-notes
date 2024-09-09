@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useRef, useEffect, useState } from "react";
 import { db } from "../appwrite/databases";
-import Trash from "../icons/Trash";
+import DeleteButton from "./DeleteButton.jsx";
 import Spinner from "../icons/Spinner";
 import { setNewOffset, autoGrow, setZIndex, bodyParser } from "../utils.js";
 
-const NoteCard = ({ note }) => {
+const NoteCard = ({ note, setNotes }) => {
   // let position = JSON.parse(note.position);
   const [saving, setSaving] = useState(false);
   const keyUpTimer = useRef(null);
@@ -93,7 +93,7 @@ const NoteCard = ({ note }) => {
         onMouseDown={mouseDown}
         style={{ backgroundColor: colors.colorHeader }}
       >
-        <Trash />
+        <DeleteButton noteId={note.$id} setNotes={setNotes} />
         {saving && (
           <div className="card-saving">
             <Spinner color={colors.colorText} />
