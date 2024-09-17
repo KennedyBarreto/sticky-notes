@@ -5,13 +5,13 @@
  </h1>
 
 <p align="center">
-  <img alt="Principal linguagem do projeto" src="https://img.shields.io/github/languages/top/KennedyBarreto/url-shortener?color=af0fff">
+  <img alt="Principal linguagem do projeto" src="https://img.shields.io/github/languages/top/KennedyBarreto/sticky-notes?color=af0fff">
 
-  <img alt="Quantidade de linguagens utilizadas" src="https://img.shields.io/github/languages/count/KennedyBarreto/url-shortener?color=af0fff">
+  <img alt="Quantidade de linguagens utilizadas" src="https://img.shields.io/github/languages/count/KennedyBarreto/sticky-notes?color=af0fff">
 
-  <img alt="Tamanho do repositório" src="https://img.shields.io/github/repo-size/KennedyBarreto/url-shortener?color=af0fff">
+  <img alt="Tamanho do repositório" src="https://img.shields.io/github/repo-size/KennedyBarreto/sticky-notes?color=af0fff">
 
-  <img alt="Licença" src="https://img.shields.io/github/license/KennedyBarreto/url-shortener?color=af0fff">
+  <img alt="Licença" src="https://img.shields.io/github/license/KennedyBarreto/sticky-notes?color=af0fff">
 
 </p>
 
@@ -29,26 +29,24 @@
 
 ## :dart: Sobre
 
-Encurtador de Urls feito com ReactJs & NodeJs, a estilização é feita com o framework Bootstrap,
-as requisições com Express & Axios e para o armazenamento dos links um banco de dados MongoDB usando
-a plataforma Atlas
+Blocos de notas interativo estilo "Post-It". Projeto Fullstack feito utilizando React.js para o Frontend e [Appwrite](https://appwrite.io/) para o banco de dados e CRUD. Baseado no projeto do [freeCodeCamp.org](https://www.youtube.com/watch?v=yBThHM2pBbE)
 
 ## :sparkles: Funcionalidades
 
-:heavy_check_mark: Encurta Links diversos; <br>
-:heavy_check_mark: Acompanha o número de clicks; <br>
-:heavy_check_mark: Copia o link encurtado para a área de transferência;<br>
-:heavy_check_mark: Gera um QR Code baixável com redirecionamento para o link<br>
+:heavy_check_mark: Crie notas e personalize suas cores; <br>
+:heavy_check_mark: Arraste e solte notas em qualquer lugar da tela; <br>
+:heavy_check_mark: Armazenamento e salvamento em tempo real<br>
+
 
 ## :rocket: Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [Boostrap](https://getbootstrap.com/)
+- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [JS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [ReactJS](https://react.dev/)
-- [NodeJS](https://nodejs.org/en)
+- [Appwrite](https://appwrite.io/)
 
 ## :white_check_mark: Pré requisitos
 
@@ -69,14 +67,10 @@ cd client
 npm i
 ```
 
-3 - Inicie o servidor node e o react
+3 - Inicie o projeto React
 
 ```bash
-cd server
-npm start
-cd ..
-cd client
-npm start
+npm run dev
 ```
 
 ## :memo: Licença
