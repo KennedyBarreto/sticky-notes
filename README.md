@@ -1,6 +1,8 @@
 <div align="center" id="top"> 
 </div>
 
+<img src="screenshot.png" alt="Sticy Notes Homepage" />
+
 <h1 align="center"> Sticky Notes - Bloco de Notas
  </h1>
 
