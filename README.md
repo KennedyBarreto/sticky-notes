@@ -1,7 +1,8 @@
 <div align="center" id="top"> 
-</div>
 
-<img src="screenshot.png" alt="Sticy Notes Homepage" />
+
+<img src="screenshot.png" alt="Sticy Notes Homepage" href="https://sticky-notes-psi-two.vercel.app/" />
+ <a href="https://sticky-notes-psi-two.vercel.app/">Demo</a></div>
 
 <h1 align="center"> Sticky Notes - Bloco de Notas
  </h1>
@@ -52,8 +53,12 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## :white_check_mark: Pré requisitos
 
-Certifique-se de que você possui o <a href="https://nodejs.org/en">Node.js 20</a> instalado
-em sua máquina e um editor de código para alterar os arquivos de configuração
+1 - Certifique-se de que você possui o <a href="https://nodejs.org/en">Node.js 20</a>  ou superior instalado
+em sua máquina e um editor de código para alterar os arquivos de configuração.
+
+2 - O projeto usa o serviço [Appwrite](https://appwrite.io/) como Backend, para conseguir reproduzir localmente é necessário criar projeto na plataforma. Para um passo-a-passo detalhado leia a [documentação](https://appwrite.io/docs).
+
+3 - Dentro da pasta do projeto existe um exemplo de arquivo de variáveis de ambiente (.env). Crie ou renomeie esse arquivo e substitua com os dados do seu projeto do Appwrite, essas variavéis serão responsáveis pela conexão entre o serviço e a aplicação.
 
 ## :checkered_flag: Começando
 
@@ -62,10 +67,6 @@ em sua máquina e um editor de código para alterar os arquivos de configuraçã
 2 - Instale as dependencias
 
 ```bash
-cd server
-npm i
-cd ..
-cd client
 npm i
 ```
 
