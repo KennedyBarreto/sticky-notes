@@ -32,7 +32,7 @@
 
 ## :dart: Sobre
 
-Blocos de notas interativo estilo "Post-It". Projeto Fullstack feito utilizando React.js para o Frontend e [Appwrite](https://appwrite.io/) para o banco de dados e CRUD. Baseado no projeto do [freeCodeCamp.org](https://www.youtube.com/watch?v=yBThHM2pBbE)
+Blocos de notas interativo estilo "Post-It". Projeto Fullstack feito utilizando React.js para o Frontend e o serviço [Appwrite](https://appwrite.io/) para o Backend. Baseado no projeto do [freeCodeCamp.org](https://www.youtube.com/watch?v=yBThHM2pBbE)
 
 ## :sparkles: Funcionalidades
 
