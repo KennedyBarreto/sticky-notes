@@ -1,36 +1,42 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import "../index.css"; // Importing the shared CSS file
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="auth-container">
-      <h2>Login</h2>
-      <form className="auth-form">
-        <div className="input-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter your email"
-            required
-          />
-        </div>
-        <div className="input-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Enter your password"
-            required
-          />
-        </div>
-        <button type="submit" className="auth-button">
-          Login
-        </button>
-      </form>
+    <div className="container">
+      <div className="login-register-container">
+        <form>
+          <div className="form-field-wrapper">
+            <label>Email:</label>
+            <input
+              required
+              type="email"
+              name="email"
+              placeholder="Enter email..."
+            />
+          </div>
+
+          <div className="form-field-wrapper">
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter password..."
+            />
+          </div>
+
+          <div className="form-field-wrapper">
+            <input type="submit" value="Login" className="btn" />
+          </div>
+        </form>
+
+        <p>
+          Don't have an account? <Link to="/register">Register</Link>
+        </p>
+      </div>
     </div>
   );
 };
-
 export default Login;
