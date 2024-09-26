@@ -11,7 +11,11 @@ const App = () => {
     <div id="app">
       <BrowserRouter>
         <NoteProvider>
-          <NotesPage />
+          <Routes>
+            <Route path="/" element={<NotesPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
         </NoteProvider>
       </BrowserRouter>
     </div>
