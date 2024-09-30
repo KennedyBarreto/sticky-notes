@@ -1,13 +1,28 @@
 /* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-unused-vars */
-import React from "react";
+import { useState } from "react";
+import { useAuth } from "../utils/AuthContext";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const { login } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await login(email, password);
+      // Redirect to the main page after successful login
+      window.location.href = "/";
+    } catch (error) {
+      console.error("Login failed", error);
+      // Handle login error (e.g., show an error message to the user)
+    }
+  };
   return (
     <div className="container">
       <div className="login-register-container">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-field-wrapper">
             <label>Email:</label>
             <input
@@ -15,6 +30,8 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="Enter email..."
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -24,6 +41,8 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="Enter password..."
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
