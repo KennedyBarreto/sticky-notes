@@ -1,4 +1,5 @@
 import AddButton from "./AddButton";
+import LogoutButton from "./LogoutButton";
 import colors from "../assets/colors.json";
 import Color from "./Color";
 
@@ -9,6 +10,7 @@ const Controls = () => {
       {colors.map((color) => (
         <Color key={color.id} color={color} />
       ))}
+      <LogoutButton />
     </div>
   );
 };
