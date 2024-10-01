@@ -2,7 +2,7 @@
 
 
 <img src="screenshot.png" alt="Sticy Notes Homepage" href="https://sticky-notes-psi-two.vercel.app/" />
- <a href="https://sticky-notes-psi-two.vercel.app/">Demo</a></div>
+ <a href="https://sticky-notes-psi-two.vercel.app/">Deploy do projeto</a></div>
 
 <h1 align="center"> Sticky Notes - Bloco de Notas
  </h1>
