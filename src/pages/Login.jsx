@@ -1,12 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import { useAuth } from "../utils/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Login = () => {
-  const { login } = useAuth();
+  const { login, user } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  if (user) {
+    return <Navigate to="/" />;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
