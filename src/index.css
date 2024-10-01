@@ -122,6 +122,24 @@ textarea:focus {
   width: 45px;
 }
 
+#logout-btn {
+  background-color: #ff4136;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#logout-btn:hover {
+  height: 45px;
+  width: 45px;
+  background-color: #ff1a1a;
+}
+
 .color {
   background-color: grey;
   height: 40px;
