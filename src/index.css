@@ -12,6 +12,10 @@
   --spinner-animation-speed: 2s;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -153,4 +157,111 @@ textarea:focus {
 .color:hover {
   height: 45px;
   width: 45px;
+}
+
+/* Add these styles to your existing index.css file */
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  padding-top: 48px;
+  padding-bottom: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.header h1 {
+  letter-spacing: -1px;
+  color: #1a1f36;
+}
+
+.formbg {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 448px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px,
+    rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+}
+
+.formbg-inner {
+  padding: 48px;
+}
+
+.formbg-inner span {
+  display: block;
+  font-size: 20px;
+  line-height: 28px;
+  color: #1a1f36;
+  padding-bottom: 15px;
+}
+
+.field {
+  padding-bottom: 24px;
+}
+
+.field label {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  color: #1a1f36;
+}
+
+.field input {
+  font-size: 16px;
+  line-height: 28px;
+  padding: 8px 16px;
+  width: 100%;
+  min-height: 44px;
+  border: none;
+  color: #1a1f36;
+  border-radius: 4px;
+  outline-color: rgba(84, 105, 212, 0.5);
+  background-color: #fff;
+  box-shadow: rgba(60, 66, 87, 0.16) 0px 0px 0px 1px;
+}
+
+.field input[type="submit"] {
+  background-color: #5469d4;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: rgb(84, 105, 212) 0px 0px 0px 1px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+}
+
+.reset-pass a {
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5469d4;
+  text-decoration: none;
+}
+
+.link {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  color: #5469d4;
+  text-decoration: none;
+}
+
+.field input:-webkit-autofill,
+.field input:-webkit-autofill:hover,
+.field input:-webkit-autofill:focus,
+.field input:-webkit-autofill:active {
+  -webkit-text-fill-color: #1a1f36 !important;
 }

@@ -16,50 +16,62 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(email, password);
-      // Redirect to the main page after successful login
       window.location.href = "/";
     } catch (error) {
       console.error("Login failed", error);
-      // Handle login error (e.g., show an error message to the user)
     }
   };
+
   return (
-    <div className="container">
-      <div className="login-register-container">
-        <form onSubmit={handleSubmit}>
-          <div className="form-field-wrapper">
-            <label>Email:</label>
-            <input
-              required
-              type="email"
-              name="email"
-              placeholder="Enter email..."
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-
-          <div className="form-field-wrapper">
-            <label>Password:</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter password..."
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-
-          <div className="form-field-wrapper">
-            <input type="submit" value="Login" className="btn" />
-          </div>
-        </form>
-
-        <p>
-          Don't have an account? <Link to="/register">Register</Link>
-        </p>
+    <div className="login-container">
+      <div className="header">
+        <h1>Sign In</h1>
+      </div>
+      <div className="formbg">
+        <div className="formbg-inner">
+          <span>Sign in to your account</span>
+          <form id="stripe-login" onSubmit={handleSubmit}>
+            <div className="field">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                autoComplete="email"
+              />
+            </div>
+            <div className="field">
+              <div className="grid">
+                <label htmlFor="password">Password</label>
+                <div className="reset-pass">
+                  <a href="#">Forgot your password?</a>
+                </div>
+              </div>
+              <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                minLength="8"
+                autoComplete="current-password"
+              />
+            </div>
+            <div className="field">
+              <input type="submit" name="submit" value="Continue" />
+            </div>
+            <div className="field">
+              <Link to="/register" className="link">
+                Don't have an account? Sign Up!
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
 };
+
 export default Login;
