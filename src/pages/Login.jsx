@@ -25,7 +25,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="header">
-        <h1>Sign In</h1>
+        <h1>Sticky Notes</h1>
       </div>
       <div className="formbg">
         <div className="formbg-inner">
@@ -62,11 +62,10 @@ const Login = () => {
             <div className="field">
               <input type="submit" name="submit" value="Continue" />
             </div>
-            <div className="field">
-              <Link to="/register" className="link">
-                Don't have an account? Sign Up!
-              </Link>
-            </div>
+
+            <Link to="/register" className="link">
+              Don't have an account? Sign Up!
+            </Link>
           </form>
         </div>
       </div>
