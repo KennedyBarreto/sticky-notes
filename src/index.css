@@ -159,8 +159,6 @@ textarea:focus {
   width: 45px;
 }
 
-/* Add these styles to your existing index.css file */
-
 .login-container {
   min-height: 100vh;
   display: flex;
@@ -220,12 +218,16 @@ textarea:focus {
   padding: 8px 16px;
   width: 100%;
   min-height: 44px;
-  border: none;
+  border: 1px solid rgba(51, 55, 70, 0.16);
   color: #1a1f36;
   border-radius: 4px;
-  outline-color: rgba(84, 105, 212, 0.5);
+  outline-color: rgb(84, 105, 212);
   background-color: #fff;
-  box-shadow: rgba(60, 66, 87, 0.16) 0px 0px 0px 1px;
+}
+
+.field input:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px #5469d4;
 }
 
 .field input[type="submit"] {
@@ -272,8 +274,8 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  /* border: 1px solid green; */
-  -webkit-text-fill-color: white;
-  -webkit-box-shadow: 0 0 0px 1000px rgb(128, 111, 206) inset;
+  border: 1px solid #5469d4;
+  -webkit-text-fill-color: black;
+  -webkit-box-shadow: 0 0 0px 1000px rgb(232, 240, 254) inset;
   transition: background-color 5000s ease-in-out 0s;
 }

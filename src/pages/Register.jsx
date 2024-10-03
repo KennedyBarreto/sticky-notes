@@ -24,67 +24,68 @@ const Register = () => {
       alert("Registration failed. Please try again.");
     }
   };
-
   return (
-    <div className="container">
-      <div className="login-register-container">
-        <form onSubmit={handleSubmit}>
-          <div className="form-field-wrapper">
-            <label>Name:</label>
-            <input
-              required
-              type="text"
-              name="name"
-              placeholder="Enter name..."
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-
-          <div className="form-field-wrapper">
-            <label>Email:</label>
-            <input
-              required
-              type="email"
-              name="email"
-              placeholder="Enter email..."
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-
-          <div className="form-field-wrapper">
-            <label>Password:</label>
-            <input
-              required
-              type="password"
-              name="password1"
-              placeholder="Enter password..."
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-
-          <div className="form-field-wrapper">
-            <label>Confirm Password:</label>
-            <input
-              required
-              type="password"
-              name="password2"
-              placeholder="Confirm password..."
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
-
-          <div className="form-field-wrapper">
-            <input type="submit" value="Register" className="btn" />
-          </div>
-        </form>
-
-        <p>
-          Already have an account? <Link to="/login">Login</Link>
-        </p>
+    <div className="login-container">
+      <div className="header">
+        <h1>Sticky Notes</h1>
+      </div>
+      <div className="formbg">
+        <div className="formbg-inner">
+          <span>Create your account</span>
+          <form id="stripe-login" onSubmit={handleSubmit}>
+            <div className="field">
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="field">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                autoComplete="email"
+              />
+            </div>
+            <div className="field">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                minLength="8"
+                autoComplete="new-password"
+              />
+            </div>
+            <div className="field">
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                name="confirmPassword"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+                minLength="8"
+                autoComplete="new-password"
+              />
+            </div>
+            <div className="field">
+              <input type="submit" name="submit" value="Register" />
+            </div>
+            <Link to="/login" className="link">
+              Already have an account? Sign In!
+            </Link>
+          </form>
+        </div>
       </div>
     </div>
   );
