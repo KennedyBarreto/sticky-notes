@@ -7,17 +7,46 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordValid, setPasswordValid] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState("");
   const navigate = useNavigate();
+
+  const isFormValid = () => {
+    return (
+      name &&
+      email &&
+      passwordValid &&
+      passwordsMatch &&
+      password === confirmPassword
+    );
+  };
+
+  const validatePassword = (password) => {
+    const regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
+    return regex.test(password);
+  };
+
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    setPasswordValid(validatePassword(newPassword));
+    setPasswordsMatch(newPassword === confirmPassword);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    const newConfirmPassword = e.target.value;
+    setConfirmPassword(newConfirmPassword);
+    setPasswordsMatch(password === newConfirmPassword);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
+    if (!passwordValid || !passwordsMatch) {
+      alert("Please correct the password errors before submitting.");
       return;
     }
     try {
       await account.create(crypto.randomUUID(), email, password, name);
-      // await account.createEmailPasswordSession(email, password);
       navigate("/");
     } catch (error) {
       console.error("Registration failed", error);
@@ -60,11 +89,17 @@ const Register = () => {
                 type="password"
                 name="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={handlePasswordChange}
                 required
                 minLength="8"
                 autoComplete="new-password"
               />
+              {password && !passwordValid && (
+                <small style={{ color: "red" }}>
+                  Password must be at least 8 characters long and contain a
+                  symbol and an uppercase letter.
+                </small>
+              )}
             </div>
             <div className="field">
               <label htmlFor="confirmPassword">Confirm Password</label>
@@ -72,14 +107,25 @@ const Register = () => {
                 type="password"
                 name="confirmPassword"
                 value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                onChange={handleConfirmPasswordChange}
                 required
                 minLength="8"
                 autoComplete="new-password"
               />
+              {confirmPassword && !passwordsMatch && (
+                <small style={{ color: "red" }}>Passwords do not match.</small>
+              )}
             </div>
             <div className="field">
-              <input type="submit" name="submit" value="Register" />
+              <input
+                type="submit"
+                name="submit"
+                value="Register"
+                disabled={!isFormValid()}
+                title={
+                  isFormValid() ? "" : "Please fill in all fields correctly."
+                }
+              />
             </div>
             <Link to="/login" className="link">
               Already have an account? Sign In!

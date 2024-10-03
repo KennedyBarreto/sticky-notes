@@ -238,6 +238,13 @@ textarea:focus {
   box-shadow: rgb(84, 105, 212) 0px 0px 0px 1px;
 }
 
+input[type="submit"]:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 50% 50%;
