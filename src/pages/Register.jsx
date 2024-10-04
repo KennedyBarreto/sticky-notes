@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { account } from "../appwrite/config";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -9,7 +10,13 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordValid, setPasswordValid] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
+
+  const togglePasswordVisibility = () => setShowPassword(!showPassword);
+  const toggleConfirmPasswordVisibility = () =>
+    setShowConfirmPassword(!showConfirmPassword);
 
   const isFormValid = () => {
     return (
@@ -85,15 +92,28 @@ const Register = () => {
             </div>
             <div className="field">
               <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                name="password"
-                value={password}
-                onChange={handlePasswordChange}
-                required
-                minLength="8"
-                autoComplete="new-password"
-              />
+              <div className="password-input">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                  required
+                  minLength="8"
+                  autoComplete="new-password"
+                />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className="password-toggle"
+                >
+                  {showPassword ? (
+                    <FaEyeSlash color="black" />
+                  ) : (
+                    <FaEye color="black" />
+                  )}
+                </button>
+              </div>
               {password && !passwordValid && (
                 <small style={{ color: "red" }}>
                   Password must be at least 8 characters long and contain a
@@ -103,15 +123,28 @@ const Register = () => {
             </div>
             <div className="field">
               <label htmlFor="confirmPassword">Confirm Password</label>
-              <input
-                type="password"
-                name="confirmPassword"
-                value={confirmPassword}
-                onChange={handleConfirmPasswordChange}
-                required
-                minLength="8"
-                autoComplete="new-password"
-              />
+              <div className="password-input">
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={handleConfirmPasswordChange}
+                  required
+                  minLength="8"
+                  autoComplete="new-password"
+                />
+                <button
+                  type="button"
+                  onClick={toggleConfirmPasswordVisibility}
+                  className="password-toggle"
+                >
+                  {showConfirmPassword ? (
+                    <FaEyeSlash color="black" />
+                  ) : (
+                    <FaEye color="black" />
+                  )}
+                </button>
+              </div>
               {confirmPassword && !passwordsMatch && (
                 <small style={{ color: "red" }}>Passwords do not match.</small>
               )}

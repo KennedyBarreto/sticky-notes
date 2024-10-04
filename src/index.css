@@ -286,3 +286,22 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px rgb(232, 240, 254) inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+.password-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input input {
+  flex-grow: 1;
+  padding-right: 40px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
