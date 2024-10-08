@@ -9,7 +9,7 @@ import { Query } from "appwrite"; // Import Query from appwrite
 export const NoteContext = createContext();
 
 const NotesProvider = ({ children }) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [notes, setNotes] = useState();
   const [selectedNote, setSelectedNote] = useState(null);
   const { user } = useAuth();
@@ -17,6 +17,9 @@ const NotesProvider = ({ children }) => {
   useEffect(() => {
     if (user) {
       init();
+    } else {
+      const timer = setTimeout(() => setLoading(false), 500); // 10 seconds timeout
+      return () => clearTimeout(timer);
     }
   }, [user]);
 
@@ -32,6 +35,8 @@ const NotesProvider = ({ children }) => {
       } finally {
         setLoading(false);
       }
+    } else {
+      setLoading(false);
     }
   };
 
