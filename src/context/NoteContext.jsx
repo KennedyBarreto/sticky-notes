@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { createContext } from "react";
 import { useState, useEffect } from "react";
@@ -18,7 +19,7 @@ const NotesProvider = ({ children }) => {
     if (user) {
       init();
     } else {
-      const timer = setTimeout(() => setLoading(false), 500); // 10 seconds timeout
+      const timer = setTimeout(() => setLoading(false), 500);
       return () => clearTimeout(timer);
     }
   }, [user]);
