@@ -2,11 +2,14 @@
 import { useState } from "react";
 import { useAuth } from "../utils/AuthContext";
 import { Link, Navigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { login, user } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   if (user) {
     return <Navigate to="/" />;
@@ -49,15 +52,28 @@ const Login = () => {
                   <a href="#">Forgot your password?</a>
                 </div>
               </div>
-              <input
-                type="password"
-                name="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                minLength="8"
-                autoComplete="current-password"
-              />
+              <div className="password-input">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  minLength="8"
+                  autoComplete="current-password"
+                />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className="password-toggle"
+                >
+                  {showPassword ? (
+                    <FaEyeSlash color="black" />
+                  ) : (
+                    <FaEye color="black" />
+                  )}
+                </button>
+              </div>
             </div>
             <div className="field">
               <input type="submit" name="submit" value="Continue" />
