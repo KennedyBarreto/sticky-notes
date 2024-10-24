@@ -76,6 +76,12 @@ npm i
 npm run dev
 ```
 
+## :construction: Próximos passos
+- [ ] Criptografia das notas no banco de dados
+- [ ] Melhorias no Design
+- [ ] Melhorias de otimização
+- [ ] Possibilidade de usuário anônimo
+
 ## :memo: Licença
 
 Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
