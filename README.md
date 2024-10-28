@@ -2,7 +2,9 @@
 
 
 <img src="screenshot.png" alt="Sticy Notes Homepage" href="https://sticky-notes-psi-two.vercel.app/" />
- <a href="https://sticky-notes-psi-two.vercel.app/">Deploy do projeto</a></div>
+<a href="https://github.com/KennedyBarreto/sticky-notes/blob/main/README.en.md">English Version</a> | 
+ <a href="https://sticky-notes-psi-two.vercel.app/">Deploy do projeto</a>
+ </div>
 
 <h1 align="center"> Sticky Notes - Bloco de Notas
  </h1>
