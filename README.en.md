@@ -1,6 +1,7 @@
 <div align="center" id="top">
 
 <img src="screenshot.png" alt="Sticky Notes Homepage" href="https://sticky-notes-psi-two.vercel.app/" />
+<a href="https://github.com/KennedyBarreto/sticky-notes/blob/main/README.md">Versão em português</a> | 
  <a href="https://sticky-notes-psi-two.vercel.app/">Project Deploy</a></div>
 
 <h1 align="center"> Sticky Notes - Note Block
