@@ -305,3 +305,32 @@ select:-webkit-autofill:focus {
   border: none;
   cursor: pointer;
 }
+
+.empty-notes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #9bd1de;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.empty-notes svg {
+  opacity: 0.8;
+}
+
+.empty-notes h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.empty-notes p {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.8;
+}
