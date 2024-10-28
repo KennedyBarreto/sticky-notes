@@ -7,9 +7,16 @@ import { NoteContext } from "../context/NoteContext";
 
 const DeleteButton = ({ noteId }) => {
   const { setNotes } = useContext(NoteContext);
+
   const handleDelete = async (e) => {
-    db.notes.delete(noteId);
-    setNotes((prevState) => prevState.filter((note) => note.$id !== noteId));
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this note?"
+    );
+
+    if (confirmDelete) {
+      db.notes.delete(noteId);
+      setNotes((prevState) => prevState.filter((note) => note.$id !== noteId));
+    }
   };
 
   return (
