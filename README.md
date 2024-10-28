@@ -77,10 +77,11 @@ npm run dev
 ```
 
 ## :construction: Próximos passos
+- [ ] Adicionar Toasts informativos
+- [ ] Confirmação de ações importantes
 - [ ] Criptografia das notas no banco de dados
 - [ ] Melhorias no Design
 - [ ] Melhorias de otimização
-- [ ] Possibilidade de usuário anônimo
 
 ## :memo: Licença
 
