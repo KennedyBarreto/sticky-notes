@@ -76,7 +76,7 @@ npm run dev
 
 ## :construction: Next Steps
 
-- [ ] Add informative Toasts
+- [X] Add informative Toasts
 - [x] Confirmation for important actions
 - [ ] Encrypt notes in the database
 - [ ] Design improvements
