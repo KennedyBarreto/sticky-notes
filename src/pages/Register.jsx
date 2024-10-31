@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { account } from "../appwrite/config";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -57,11 +59,23 @@ const Register = () => {
       navigate("/");
     } catch (error) {
       console.error("Registration failed", error);
-      alert("Registration failed. Please try again.");
+      toast.error("An user with this email already exists. Please try again.");
     }
   };
   return (
     <div className="login-container">
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div className="header">
         <h1>Sticky Notes</h1>
       </div>
