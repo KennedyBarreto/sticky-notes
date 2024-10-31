@@ -79,7 +79,7 @@ npm run dev
 ```
 
 ## :construction: Próximos passos
-- [ ] Adicionar Toasts informativos
+- [X] Adicionar Toasts informativos
 - [X] Confirmação de ações importantes
 - [ ] Criptografia das notas no banco de dados
 - [ ] Melhorias no Design
